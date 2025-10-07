@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 function App() {
@@ -8,11 +8,8 @@ function App() {
 
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/api';
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const fetchUsers = async () => {
+  // Use useCallback to memoize the fetchUsers function
+  const fetchUsers = useCallback(async () => {
     try {
       const response = await fetch(`${API_URL}/users`);
       const data = await response.json();
@@ -20,7 +17,11 @@ function App() {
     } catch (error) {
       console.error('Error fetching users:', error);
     }
-  };
+  }, [API_URL]); // Add API_URL as dependency
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]); // Now fetchUsers is stable and can be included in dependencies
 
   const addUser = async (e) => {
     e.preventDefault();
