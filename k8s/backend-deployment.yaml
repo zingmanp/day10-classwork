@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend-deployment
 spec:
-  replicas: 3
+  replicas: 3 #you may choice to make this just 2 replicas
   selector:
     matchLabels:
       app: backend
