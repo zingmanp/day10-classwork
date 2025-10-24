@@ -110,7 +110,7 @@ jobs:
         labels: |
           org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
 
-  deploy-manual:
+  deployment:
     needs: [build-backend, build-frontend]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
