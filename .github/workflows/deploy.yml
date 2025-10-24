@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_PREFIX: successtech
+  IMAGE_PREFIX: ${{secrets.DOCKERHUB_USERNAME}}
 
 jobs:
   build-backend:
@@ -119,7 +119,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Deployment Ready
-      run: |
+      run: 
         echo "Docker images have been built and pushed to DockerHub!"
         echo "Backend: successtech/fullstack-backend:latest"
         echo "Frontend: successtech/fullstack-frontend:latest"
