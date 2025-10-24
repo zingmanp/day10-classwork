@@ -121,8 +121,8 @@ jobs:
     - name: Deployment Ready
       run: 
         echo "Docker images have been built and pushed to DockerHub!"
-        echo "Backend: successtech/fullstack-backend:latest"
-        echo "Frontend: successtech/fullstack-frontend:latest"
+        echo "Backend successtech/fullstack-backend:latest"
+        echo "Frontend successtech/fullstack-frontend:latest"
         echo ""
         echo "To deploy manually on your VM, run:"
         echo "./scripts/deploy-k8s.sh"
