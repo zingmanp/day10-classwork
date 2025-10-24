@@ -1,4 +1,4 @@
-# Stage 1: this isto build the app
+# Stage 1: this is to build the app
 
 FROM maven:3.8.6-openjdk-11 as build
 
@@ -20,4 +20,4 @@ COPY --from=build /app/target/demo-1.0.0.jar .
 
 EXPOSE 8080
 
-ENTRYPOINT ["jave", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
